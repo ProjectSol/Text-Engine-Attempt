@@ -3,5 +3,5 @@ function love.conf(t)
 	t.window.width = 800
 	t.window.height = 600
 	t.console = true
-	t.vsync = false
+	t.window.vsync = false
 end
