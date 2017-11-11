@@ -47,5 +47,9 @@ function textDraw:delayDraw(subs, x, y, Font, Speed, Colour)
   end
 end
 
+function textDraw:textDraw(array)
+
+end
+
 
 return textDraw
