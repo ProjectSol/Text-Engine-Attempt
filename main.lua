@@ -9,7 +9,10 @@ function love.load()
 	messages[3] = "This is text for message 3"
 	messages[4] = "This is text for message 4"
 	messages[5] = "Ah yes, text, my favourite"
-	textDraw:textRender(messages)
+	textEngine:newTextBox()
+	for i = 1,#messages do
+		textDraw:delayedNewText(messages[i])
+	end
 end
 
 function checkCollision(x1,y1,w1,h1, x2,y2,w2,h2)
@@ -22,16 +25,15 @@ end
 function love.update(dt)
 	worldX, worldY = love.mouse.getPosition()
 end
-l=0
+l = 0
 function love.mousepressed(x, y, button, isTouch)
 	l = l+1
 	textDraw:delayedNewText(tostring(l))
 end
 
 function love.draw()
-	for i = 1,#delayedText do
-		textDraw:delayDraw(i, 10, 30*i)
-	end
+	textEngine:textRenderBasic()
+	textEngine:boxTest(a)
   if debug then
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.setFont(font)
